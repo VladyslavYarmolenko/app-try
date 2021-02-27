@@ -5,6 +5,7 @@ const router = require("./router");
 
 const app = express();
 
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
 	secret: "my secret 123!",
@@ -12,7 +13,6 @@ app.use(session({
 	resave: true,
 	cookie: {
 		maxAge: 10_000,
-		httpOnly: false,
 	},
 }));
 

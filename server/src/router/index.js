@@ -1,6 +1,5 @@
 const express = require("express");
-const createUser = require("./create-user");
-const allowOrigin = require("./allow-origin");
+const carsRouter = require("./cars");
 
 const router = express.Router();
 
@@ -27,23 +26,6 @@ router.route("/self")
 		// sign out
 	});
 
-router.route("/users")
-	.get((req, res) => {
-		res.sendStatus(405);
-	})
-	.post(
-		allowOrigin("http://localhost:3000"),
-		async (req, res) => {
-			const id = await createUser({
-				name: req.body.name,
-			});
-
-			res
-				.status(201)
-				.json({
-					result: id,
-				});
-		},
-	);
+router.use("/cars", carsRouter);
 
 module.exports = router;

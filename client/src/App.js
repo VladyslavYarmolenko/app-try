@@ -1,10 +1,10 @@
-import Form from "./components/form";
+import NewCarForm from "./components/new-car-form";
 
 function App() {
   return (
     <div className="App">
       <h1>Welcome!</h1>
-      <Form />
+      <NewCarForm />
     </div>
   );
 }
