@@ -6,7 +6,13 @@ const router = express.Router();
 
 router.route("/")
 	.get((req, res) => {
-		res.send("Hello world!");
+		if (req.session.views) {
+			req.session.views++
+			res.send(`views: ${req.session.views}, expires in: ${req.session.cookie.maxAge / 1000}s`);
+		} else {
+			req.session.views = 1;
+			res.send('welcome to the session demo. refresh!');
+		}
 	});
 
 router.route("/users")
