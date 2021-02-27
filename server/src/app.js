@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const passport = require("passport");
 const router = require("./router");
 
 const app = express();
@@ -14,6 +15,10 @@ app.use(session({
 		httpOnly: false,
 	},
 }));
+
+// app.use(require('cookie-parser')()); TODO:
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", router);
 

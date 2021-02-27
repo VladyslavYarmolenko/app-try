@@ -15,6 +15,18 @@ router.route("/")
 		}
 	});
 
+router.route("/self")
+	.get(() => {
+		// if authenticated, return self
+		// otherwise, render login page
+	})
+	.post(() => {
+		// authenticate self with username and password
+	})
+	.delete(() => {
+		// sign out
+	});
+
 router.route("/users")
 	.get((req, res) => {
 		res.sendStatus(405);
