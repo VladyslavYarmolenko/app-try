@@ -14,7 +14,7 @@ router.route("/users")
 		res.sendStatus(405);
 	})
 	.post(
-		allowOrigin("foo.com"),
+		allowOrigin("http://localhost:3000"),
 		async (req, res) => {
 			const id = await createUser({
 				name: req.body.name,
