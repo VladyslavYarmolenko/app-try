@@ -52,8 +52,6 @@ export default function Form() {
 					disabled={sending}
 				>Send</button>
 			</form>
-
-			<p>{name}</p>
 		</>
 	);
 }
